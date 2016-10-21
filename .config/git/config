@@ -1,0 +1,22 @@
+[user]
+	name = Håvard Wormdal Høiby
+	email = havardwhoiby@gmail.com
+[color]
+	ui = auto
+[core]
+	excludesfile = ~/.config/git/ignore
+[push]
+	default = simple
+[rerere]
+	enabled = true
+[alias]
+	o = checkout
+	c = commit
+	st = status
+	cm = commit -m
+	unstage = reset HEAD --
+	last = log -1 HEAD --
+	f = fetch
+	p = pull
+
+	recent = for-each-ref --sort=committerdate refs/heads/ --format='%(refname:short)'
