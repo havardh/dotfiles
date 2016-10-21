@@ -1,0 +1,16 @@
+.config/Atom
+.config/Electron
+.config/Slack
+.config/chromium
+.config/configstore
+.config/dconf
+.config/google-chrome
+.config/gtk-2.0
+.config/htop
+.config/menus/
+.config/pavucontrol.ini
+.config/pulse
+.config/spotify
+.config/toggl-cli
+.emacs.d/auto-save-list
+.emacs.d/elpa
