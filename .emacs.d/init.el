@@ -1,18 +1,35 @@
-
 ;; Added by Package.el.  This must come before configurations of
 ;; installed packages.  Don't delete this line.  If you don't want it,
 ;; just comment it out by adding a semicolon to the start of the line.
 ;; You may delete these explanatory comments.
 (package-initialize)
 
+(use-package darcula-theme
+  :ensure t
+  :config
+  ;; your preferred main font face here
+  (set-frame-font "Inconsolata-14"))
+
 (add-to-list 'load-path (expand-file-name "site-lisp" user-emacs-directory))
+; list the packages you want
+;(setq package-list '(smex magit))
 
-(require 'package)
+; list the repositories containing them
+(setq package-archives '(("elpa" . "http://tromey.com/elpa/")
+                         ("gnu" . "http://elpa.gnu.org/packages/")
+			 ("melpa" . "http://melpa.org/packages/")
+                         ("marmalade" . "http://marmalade-repo.org/packages/")))
 
-(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
+
+; fetch the list of packages available
+;(unless package-archive-contents
+;  (package-refresh-contents))
+; install the missing packages
+;(dolist (package package-list)
+;  (unless (package-installed-p package)
+;    (package-install package)))
 
 (require 'key-bindings)
-
 
 (ido-mode t)
 (setq ido-enable-prefix nil
@@ -52,3 +69,4 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+(put 'upcase-region 'disabled nil)
