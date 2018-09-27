@@ -20,6 +20,9 @@ font pango:monospace 8
 font pango:DejaVu Sans Mono, Awesome 8
 
 exec --no-startup-id "setxkbmap no"
+#no_focus [class=".*"]
+
+for_window [class="^.*"] border pixel 3
 
 # Open Spotify on scratchpad
 exec --no-startup-id spotify
@@ -29,6 +32,10 @@ bindsym $mod+s [class="Spotify"] scratchpad show
 exec --no-startup-id pavucontrol
 for_window [class="Pavucontrol"] move scratchpad
 bindsym $mod+Shift+v [class="Pavucontrol"] scratchpad show
+
+#for_window [class="XVroot"] move scratchpad
+#bindsym $mod+Shift+x [class="XVroot"] scratchpad show
+for_window [class="XVroot"] floating enable
 
 exec --no-startup-id pavucontrol
 
@@ -44,6 +51,7 @@ exec --no-startup-id pavucontrol
 floating_modifier $mod
 
 # start a terminal
+#bindsym $mod+Return exec hyper
 bindsym $mod+Return exec xterm
 
 # kill focused window
@@ -136,9 +144,13 @@ bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
+bindsym $mod+Shift+s exec "/home/havard/bin/shoot"
+
 # rofi
 bindsym $mod+Shift+d exec rofi -fuzzy -show run
 bindsym $mod+Shift+w exec rofi -fuzzy -show window
+bindsym $mod+Ctrl+s exec rofi -fuzzy -modi "workflow-slides:~/bin/workflow-slides.sh" -show workflow-slides
+bindsym $mod+Shift+f exec rofi -fuzzy -modi "workflow:~/bin/workflow-rofi.sh" -show workflow
 
 # lock screen
 bindsym control+$mod+l exec i3lock
@@ -148,6 +160,8 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+# passmenu
+bindsym $mod+Shift+p exec passmenu
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -189,6 +203,7 @@ client.focused          #333333 #333333 #888888 #292d2e   #333333
 # finds out, if available)
 bar {
     status_command py3status -c ~/.config/i3/i3status.conf
+    #status_command i3status
     position top
     workspace_buttons yes
 

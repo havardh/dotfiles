@@ -14,8 +14,9 @@ fi
 
 export PATH="$PATH:/home/havard/bin:/usr/share/intellij-idea-ultimate-edition/bin"
 
-export TERMINAL=urxvt
+export TERMINAL=xterm
 
+feh --bg-scale ~/docs/backgrounds/arch-bw-wood.png
 setxkbmap no
 
 exec i3
